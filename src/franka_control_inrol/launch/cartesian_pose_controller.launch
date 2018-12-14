@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="robot_ip" default="172.16.0.2" />
+  <arg name="load_gripper" default="false" />
+  <include file="$(find franka_control)/launch/franka_control.launch" >
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <rosparam command="load" file="$(find franka_control_inrol)/config/franka_control_inrol.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="cartesian_pose_controller"/>
+
+  <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find franka_control_inrol)/launch/robot.rviz"/>
+
+        <arg  name="ip_address"  default="192.168.10.1"/>
+	<arg  name="bias"	 default="False"/>
+	<arg  name="rate" 	 default="1000"/>	
+	<arg  name="frame_id"    default="myframe"/>
+	<arg  name="alpha"	 default="0" />	
+	<arg  name="rot"	 default="0"/>
+	<arg  name="scale_x"	 default="1"/>
+	<arg  name="scale_y"	 default="1"/>
+	<arg  name="scale_z"	 default="1"/>
+
+
+	<group ns="ft_sensor">
+		<param name="frame_id" type="str" value="$(arg frame_id)"/>
+		<node name="force_torque_sensor" pkg="netft_rdt_driver" type="netft_node" 
+		    args="--address $(arg ip_address) --rate $(arg rate) --bias $(arg bias) --rot $(arg rot) --alpha $(arg alpha) --scale_x $(arg scale_x) --scale_y $(arg scale_y) --scale_z $(arg scale_z)" 
+			 required="true" output="screen"/>
+	</group>
+
+
+</launch>
+

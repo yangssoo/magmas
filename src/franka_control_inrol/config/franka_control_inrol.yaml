@@ -1,0 +1,92 @@
+inrol_impedance_controller:
+    type: franka_control_inrol/InrolImpedanceController
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+
+parameter_identification:
+    type: franka_control_inrol/ParameterIdentification
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+
+inrol_peg_in_hole:
+    type: franka_control_inrol/InrolPegInHole
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+
+impedance_controller_6DOF:
+    type: franka_control_inrol/ImpedanceController6DOF
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+
+cartesian_pose_controller:
+    type: franka_control_inrol/CartesianPoseController
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+
+path_generator:
+    type: franka_control_inrol/PathGenerator
+    arm_id: panda
+    joint_names:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+    k_gains:
+        - 600.0
+        - 600.0
+        - 600.0
+        - 600.0
+        - 250.0
+        - 150.0
+        - 50.0
+    d_gains:
+        - 50.0
+        - 50.0
+        - 50.0
+        - 20.0
+        - 20.0
+        - 20.0
+        - 10.0
+    radius: 0.1
+    acceleration_time: 2.0
+    vel_max: 0.15
+    publish_rate: 10.0
+    coriolis_factor: 1.0

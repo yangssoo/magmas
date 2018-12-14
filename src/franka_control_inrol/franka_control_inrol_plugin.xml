@@ -1,0 +1,35 @@
+<library path="lib/libfranka_control_inrol">
+  <class name="franka_control_inrol/InrolImpedanceController" type="franka_control_inrol::InrolImpedanceController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      A controller that renders a spring damper system in cartesian space. Compliance parameters and the equilibrium pose can be modified online with dynamic reconfigure and an interactive marker respectively. 
+    </description>
+  </class>
+
+  <class name="franka_control_inrol/ParameterIdentification" type="franka_control_inrol::ParameterIdentification" base_class_type="controller_interface::ControllerBase">
+    <description>
+	Parameter Identification using impedance control
+    </description>
+  </class>
+
+  <class name="franka_control_inrol/InrolPegInHole" type="franka_control_inrol::InrolPegInHole" base_class_type="controller_interface::ControllerBase">
+  </class>
+
+  <class name="franka_control_inrol/PathGenerator" type="franka_control_inrol::PathGenerator" base_class_type="controller_interface::ControllerBase">
+    <description>
+	path generator
+    </description>
+  </class>
+
+  <class name="franka_control_inrol/ImpedanceController6DOF" type="franka_control_inrol::ImpedanceController6DOF" base_class_type="controller_interface::ControllerBase">
+    <description>
+	6DOF Impedance Controller
+    </description>
+  </class>
+
+  <class name="franka_control_inrol/CartesianPoseController" type="franka_control_inrol::CartesianPoseController" base_class_type="controller_interface::ControllerBase">
+    <description>
+	cartesian position controller
+    </description>
+  </class>
+
+</library>
